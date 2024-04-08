@@ -9,37 +9,46 @@ import Foundation
 import SwiftUI
 
 struct CategoryRowView: View {
-    var categories: Categories
+    var category: Category
+    
+    @Environment(\.colorScheme) var colorScheme
+    @State private var currentImageName: String = ""
     
     var body: some View {
         
+        let image = category.currentImageName
+        
         VStack {
-            Text(categories.title)
+            Text(category.title)
                 .font(.custom("SairaCondensed-Bold", size: 24))
                 .padding(.bottom, -8)
-                .shadow(color: .red, radius: 5)
+                .shadow(color: Color("mainThemeColor"), radius: 5)
+                .foregroundColor(.white)
         
-
-            categories.image
+            Image(image)
                 .resizable()
                 .scaledToFit()
                 .frame(height: 200)
                 .cornerRadius(10.0)
                 .padding(8)
+                .onChange(of: colorScheme) { _ in
+                                currentImageName = category.currentImageName
+                            }
 
-
-            Text(categories.description)
+            Text(category.description)
                 .padding(.top, 0)
                 .padding(.leading, 16)
                 .padding(.trailing, 16)
+                .foregroundColor(.white)
         }
         .padding(8)
-        .background()
+        .background(Color("backgroundColor"))
         .cornerRadius(10)
-        .shadow(color: .red, radius: 5)
+        .shadow(color: Color("mainThemeColor"), radius: 5)
     }
+    
 }
 
 #Preview {
-    CategoryRowView(categories: Categories.data[1])
+    CategoryRowView(category: Category.data[1])
 }

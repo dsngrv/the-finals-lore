@@ -9,22 +9,24 @@ import Foundation
 import SwiftUI
 
 struct CharactersView: View {
-    let characters: [Characters]
+    let character: [Character]
     
     var body: some View {
         List {
-            ForEach(characters, id: \.id) { character in
+            ForEach(character, id: \.id) { character in
                 CharactersRowView(character: character)
                     .listRowBackground(Color.clear)
             }
-            .navigationTitle("Characters")
-            .listStyle(.plain)
             .listRowSeparator(.hidden)
         }
+        .background(Color("backgroundColor"))
+        .navigationTitle("Characters")
+        .listStyle(.plain)
         .scrollIndicators(.hidden)
     }
 }
 
+
 #Preview {
-    CharactersView(characters: Characters.data)
+    CharactersView(character: Character.data)
 }

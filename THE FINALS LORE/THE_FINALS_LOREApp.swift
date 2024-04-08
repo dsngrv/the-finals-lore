@@ -9,10 +9,14 @@ import SwiftUI
 
 @main
 struct THE_FINALS_LOREApp: App {
+    
+    @AppStorage("isToggleOn") private var isToggleOn = false
+    
     var body: some Scene {
         WindowGroup {
             ContentView()
-                .preferredColorScheme(.dark)
+            
+                .preferredColorScheme(isToggleOn ? .dark : .light)
 /*                
                 Определение подлинного названия шрифта на случай, если название файла отличается
                 .onAppear() {

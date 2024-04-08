@@ -13,7 +13,7 @@ struct MainView: View {
         
         ZStack {
 
-            Color("backgroundColor")
+            Color("mainThemeColor")
                 .edgesIgnoringSafeArea(.top)
             
             VStack {

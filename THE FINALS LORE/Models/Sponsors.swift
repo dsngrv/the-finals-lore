@@ -8,41 +8,41 @@
 import Foundation
 import SwiftUI
 
-public struct Sponsors: Identifiable {
+public struct Sponsor: Identifiable {
     public let id: Int
     public let description: String
     public let image: Image
     
     static let data = [
-        Sponsors(
+        Sponsor(
             id: 1,
             description: """
             OSPUZE, an energy drink brand. Official sponsor of the Monaco arena.
             """,
             image: Image("sponsor_ospuze")
         ),
-        Sponsors(
+        Sponsor(
             id: 2,
             description: """
             VAIIYA, cyber-security experts. Official sponsor of Season 2.
             """,
             image: Image("sponsor_vaiiya")
         ),
-        Sponsors(
+        Sponsor(
             id: 3,
             description: """
             VOLPE, the company behind the VR tech that makes THE FINALS possible. Official sponsor of the Skyway Stadium arena.
             """,
             image: Image("sponsor_volpe")
         ),
-        Sponsors(
+        Sponsor(
             id: 4,
             description: """
             HOLTOW, an insurance company, focusing on protecting digital assets. Official sponsor of the Las Vegas arena.
             """,
             image: Image("sponsor_holtow")
         ),
-        Sponsors(
+        Sponsor(
             id: 5,
             description: """
             ISEUL-T, South Korean fashion-wear brand. Official sponsor of the Seoul arena.
