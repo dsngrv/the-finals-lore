@@ -8,30 +8,6 @@
 import Foundation
 import SwiftUI
 
-//struct SponsorsView: View {
-//    let sponsors: [Sponsors]
-//    
-//    var body: some View {
-//        List(sponsors) { sponsor in
-//            VStack {
-//                
-//                sponsor.image
-//                    .resizable()
-//                    .aspectRatio(contentMode: .fit)
-//                
-//                Text(sponsor.description)
-//                    .font(.headline)
-//            }
-//            .padding()
-//            .cornerRadius(10)
-//            .padding(.horizontal)
-//            .listRowSeparator(.hidden)
-//        }
-//        .navigationTitle("Sponsors")
-//        .scrollIndicators(.hidden)
-//    }
-//}
-
 struct SponsorsView: View {
     let sponsor: [Sponsor]
     
