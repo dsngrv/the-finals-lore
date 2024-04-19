@@ -12,12 +12,9 @@ struct CategoryRowView: View {
     var category: Category
     
     @Environment(\.colorScheme) var colorScheme
-    @State private var currentImageName: String = ""
     
     var body: some View {
-        
-        let image = category.currentImageName
-        
+                
         VStack {
             Text(category.title)
                 .font(.custom("SairaCondensed-Bold", size: 24))
@@ -25,15 +22,12 @@ struct CategoryRowView: View {
                 .shadow(color: Color("mainThemeColor"), radius: 5)
                 .foregroundColor(.white)
         
-            Image(image)
+            Image(category.image)
                 .resizable()
                 .scaledToFit()
                 .frame(height: 200)
                 .cornerRadius(10.0)
                 .padding(8)
-                .onChange(of: colorScheme) { _ in
-                                currentImageName = category.currentImageName
-                            }
 
             Text(category.description)
                 .padding(.top, 0)
