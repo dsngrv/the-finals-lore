@@ -9,15 +9,16 @@ import Foundation
 import SwiftUI
 
 struct CharactersRowView: View {
-    let character: Characters
+    let character: Character
     
     var body: some View {
             VStack {
                 Text(character.title)
                     .font(.custom("SairaCondensed-Bold", size: 24))
-                    .shadow(color: .red, radius: 5)
+                    .shadow(color: Color("mainThemeColor"), radius: 5)
                     .padding(.bottom, -8)
-                    
+                    .foregroundColor(.white)
+                
                 character.image
                     .resizable()
                     .frame(width: 300, height: 300)
@@ -28,14 +29,15 @@ struct CharactersRowView: View {
                     .fontWeight(.bold)
                     .multilineTextAlignment(.leading)
                     .padding(.top, 0)
+                    .foregroundColor(.white)
             }
         .padding(8)
-        .background()
+        .background(Color("backgroundColor"))
         .cornerRadius(10)
-        .shadow(color: .red, radius: 5)
+        .shadow(color: Color("mainThemeColor"), radius: 5)
     }
 }
 
 #Preview {
-    CharactersRowView(character: Characters.data[4])
+    CharactersRowView(character: Character.data[4])
 }

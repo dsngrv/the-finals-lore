@@ -8,39 +8,15 @@
 import Foundation
 import SwiftUI
 
-//struct SponsorsView: View {
-//    let sponsors: [Sponsors]
-//    
-//    var body: some View {
-//        List(sponsors) { sponsor in
-//            VStack {
-//                
-//                sponsor.image
-//                    .resizable()
-//                    .aspectRatio(contentMode: .fit)
-//                
-//                Text(sponsor.description)
-//                    .font(.headline)
-//            }
-//            .padding()
-//            .cornerRadius(10)
-//            .padding(.horizontal)
-//            .listRowSeparator(.hidden)
-//        }
-//        .navigationTitle("Sponsors")
-//        .scrollIndicators(.hidden)
-//    }
-//}
-
 struct SponsorsView: View {
-    let sponsors: [Sponsors]
+    let sponsor: [Sponsor]
     
     let columns: [GridItem] = Array(repeating: GridItem(.flexible()), count: 2)
     
     var body: some View {
         ScrollView {
             LazyVGrid(columns: columns, spacing: 16) {
-                ForEach(sponsors, id: \.id) { sponsor in
+                ForEach(sponsor, id: \.id) { sponsor in
                     VStack {
                         sponsor.image
                             .resizable()
@@ -52,21 +28,23 @@ struct SponsorsView: View {
                         Text(sponsor.description)
                             .font(.caption)
                             .fontWeight(.bold)
+                            .foregroundColor(.white)
                             .multilineTextAlignment(.leading)
                             .padding(8)
                     }
-                    .background()
+                    .background(Color("backgroundColor"))
                     .cornerRadius(10)
-                    .shadow(color: .red, radius: 5)
+                    .shadow(color: Color("mainThemeColor"), radius: 5)
                     .padding()
                 }
             }
             .padding()
         }
         .navigationTitle("Sponsors")
+        .background(Color("backgroundColor"))
     }
 }
 
 #Preview {
-    SponsorsView(sponsors: Sponsors.data)
+    SponsorsView(sponsor: Sponsor.data)
 }

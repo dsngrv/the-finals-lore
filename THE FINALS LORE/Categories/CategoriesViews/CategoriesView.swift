@@ -9,22 +9,25 @@ import Foundation
 import SwiftUI
 
 struct CategoriesView: View {
+    
+    @Binding var titleOn: Bool
+    
     var body: some View {
         NavigationView {
-            List(Categories.data) { category in
+            List(Category.data) { category in
                 NavigationLink(destination: category.title == "IN-GAME SPONSORS" ?
-                               AnyView(SponsorsView(sponsors: Sponsors.data)) : AnyView(CharactersView(characters: Characters.data))) {
-                    CategoryRowView(categories: category)
+                               AnyView(SponsorsView(sponsor: Sponsor.data)) : AnyView(CharactersView(character: Character.data))) {
+                    CategoryRowView(category: category)
                 }
+                               .listRowBackground(Color("backgroundColor"))
                                .listRowSeparator(.hidden)
             }
+            .background(Color("backgroundColor"))
             .navigationTitle("Lore Categories")
             .listStyle(.plain)
             .scrollIndicators(.hidden)
+            .toolbar(titleOn ? .visible : .hidden)
         }
     }
-}
 
-#Preview {
-    CategoriesView()
 }

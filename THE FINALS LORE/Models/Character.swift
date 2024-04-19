@@ -8,14 +8,14 @@
 import Foundation
 import SwiftUI
 
-public struct Characters: Identifiable {
+public struct Character: Identifiable {
     public let id: Int
     public let title: String
     public let description: String
     public let image: Image
     
     static let data = [
-        Characters(
+        Character(
             id: 1,
             title: "COMMENTATORS",
             description: """
@@ -23,7 +23,7 @@ public struct Characters: Identifiable {
             """,
             image: Image("char_scotty_june")
         ),
-        Characters(
+        Character(
             id: 2,
             title: "THE ANNOUNCER",
             description: """
@@ -31,7 +31,7 @@ public struct Characters: Identifiable {
             """,
             image: Image("char_announcer")
         ),
-        Characters(
+        Character(
             id: 3,
             title: "CNS",
             description: """
@@ -39,7 +39,7 @@ public struct Characters: Identifiable {
             """,
             image: Image("char_cns")
         ),
-        Characters(
+        Character(
             id: 4,
             title: "ODILIA, THE TRICKSTER",
             description: """
@@ -47,7 +47,7 @@ public struct Characters: Identifiable {
             """,
             image: Image("char_odilia")
         ),
-        Characters(
+        Character(
             id: 5,
             title: "ARIAD, CNS",
             description: """
