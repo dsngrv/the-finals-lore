@@ -5,7 +5,6 @@
 //  Created by Дмитрий Снигирев on 17.03.2024.
 //
 
-import CoreLocation
 import SwiftUI
 
 struct ContentView: View {
