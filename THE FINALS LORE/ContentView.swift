@@ -8,14 +8,35 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @State private var currentTheme: UIUserInterfaceStyle = .light
+    @AppStorage("titleOn") var titleOn = true
+        
+    init() {
+        setupTabBar()
+        setupNavBar()
+    }
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        TabView {
+            MainView()
+                .tabItem {
+                    Label("Main", systemImage: "figure.wave.circle.fill")
+                }
+            CategoriesView(titleOn: $titleOn)
+                .tabItem {
+                    Label("Categories", systemImage: "rectangle.grid.1x2.fill")
+                }
+            PlacesView()
+                .tabItem {
+                    Label("Places", systemImage: "globe")
+            }
+            SettingsView(titleOn: $titleOn)
+                .tabItem {
+                    Label("Settings", systemImage: "gear")
+                }
         }
-        .padding()
+        .accentColor(Color("mainThemeColor"))
     }
 }
 
