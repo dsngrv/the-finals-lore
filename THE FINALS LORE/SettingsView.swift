@@ -12,11 +12,12 @@ struct SettingsView: View {
     
     @Environment(\.colorScheme) var colorScheme
     @AppStorage("isToggleOn") private var isToggleOn = false
-    @State private var sliderValue = 0.5
+    @AppStorage("sliderValue") private var sliderValue = 0.5
     @State private var selectedCommandIndex = 0
     @Binding var titleOn: Bool
     
     let gameCommands = ["The Boundless", "The Overdogs", "The Steamrollers"]
+    let audioManager = AudioManager.shared
     
     var body: some View {
         
@@ -45,8 +46,17 @@ struct SettingsView: View {
                             .frame(maxWidth: .infinity, alignment: .leading)
                             .foregroundColor(.white)
                         
-                        Slider(value: $sliderValue, in: 0...1, step: 0.1)
-                            .accentColor(Color("mainThemeColor"))
+                        HStack {
+                            Image(systemName: "speaker.fill")
+                                .foregroundColor(.white)
+                            Slider(value: $sliderValue, in: 0...1, step: 0.1, onEditingChanged: { editing in
+                                if !editing {
+                                    audioManager.setVolume(Float(sliderValue))
+                                }
+                            })
+                            Image(systemName: "speaker.wave.2.fill")
+                                .foregroundColor(.white)
+                        }
                     }
                     
                     VStack {
@@ -62,7 +72,6 @@ struct SettingsView: View {
                     
                 }
                 .listRowBackground(Color("secondaryBGColor"))
-                
                 
                 Section(header: Text("THE FINALS TEAM")
                     .foregroundColor(Color("sectionHeaderColor"))) {
